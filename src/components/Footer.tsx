@@ -95,13 +95,34 @@ const Footer = () => {
         <div className="border-t border-slate-700 mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="text-sm text-slate-400">
-              © 2024 E-LOGISTIK Adriatic Solutions S.p.A. Tutti i diritti riservati.
+              © 2025 E-LOGISTIK Adriatic Solutions S.p.A. Tutti i diritti riservati.
             </div>
             
             <div className="flex space-x-6 text-sm">
-              <a href="#" className="text-slate-400 hover:text-white transition-colors">Privacy Policy</a>
-              <a href="#" className="text-slate-400 hover:text-white transition-colors">Termini di Servizio</a>
-              <a href="#" className="text-slate-400 hover:text-white transition-colors">Cookie Policy</a>
+              <a 
+                href="https://www.iubenda.com/privacy-policy/e-logistik" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-slate-400 hover:text-white transition-colors"
+              >
+                Privacy Policy
+              </a>
+              <a 
+                href="https://www.iubenda.com/terms-and-conditions/e-logistik" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-slate-400 hover:text-white transition-colors"
+              >
+                Termini di Servizio
+              </a>
+              <a 
+                href="https://www.iubenda.com/cookie-policy/e-logistik" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-slate-400 hover:text-white transition-colors"
+              >
+                Cookie Policy
+              </a>
             </div>
           </div>
         </div>
