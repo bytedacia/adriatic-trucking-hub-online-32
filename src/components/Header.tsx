@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { Menu, X, Truck, Phone, Mail } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -12,18 +12,8 @@ const Header = () => {
   return (
     <header className="bg-slate-900 text-white shadow-lg sticky top-0 z-50">
       <div className="container mx-auto px-4">
-        {/* Top bar con contatti */}
-        <div className="flex justify-between items-center py-2 text-sm border-b border-slate-700">
-          <div className="flex items-center space-x-4">
-            <div className="flex items-center space-x-1">
-              <Phone size={14} />
-              <span>+39 040 123 4567</span>
-            </div>
-            <div className="flex items-center space-x-1">
-              <Mail size={14} />
-              <span>info@e-logistik.it</span>
-            </div>
-          </div>
+        {/* Top bar semplificata */}
+        <div className="flex justify-end items-center py-2 text-sm border-b border-slate-700">
           <div className="text-xs text-slate-300">
             Servizi di logistica professionale
           </div>
@@ -32,8 +22,12 @@ const Header = () => {
         {/* Main navigation */}
         <div className="flex justify-between items-center py-4">
           <div className="flex items-center space-x-3">
-            <div className="bg-blue-600 p-2 rounded-lg">
-              <Truck size={28} className="text-white" />
+            <div className="bg-transparent p-2 rounded-lg">
+              <img 
+                src="/lovable-uploads/d4b99117-2814-4c47-9115-e55a7af3b178.png" 
+                alt="E-LOGISTIK Logo" 
+                className="h-10 w-auto"
+              />
             </div>
             <div>
               <h1 className="text-xl font-bold">E-LOGISTIK</h1>

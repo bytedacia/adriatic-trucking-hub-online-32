@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Truck, Package, Clock, Shield, MapPin, Users } from 'lucide-react';
+import { Truck, Package, Clock, Shield, MapPin } from 'lucide-react';
 
 const Services = () => {
   const services = [
@@ -33,12 +33,6 @@ const Services = () => {
       title: "Pianificazione Rotte",
       description: "Ottimizzazione dei percorsi per garantire efficienza, risparmio e rispetto dei tempi.",
       features: ["Ottimizzazione percorsi", "Risparmio carburante", "Tempi garantiti"]
-    },
-    {
-      icon: Users,
-      title: "Consulenza Logistica",
-      description: "Consulenza specializzata per ottimizzare i processi logistici della vostra azienda.",
-      features: ["Analisi processi", "Soluzioni personalizzate", "Supporto continuo"]
     }
   ];
 
