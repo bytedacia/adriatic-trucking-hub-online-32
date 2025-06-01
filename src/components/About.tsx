@@ -1,8 +1,11 @@
 
 import React from 'react';
 import { Users, Target, Award, Globe } from 'lucide-react';
+import { useTrucksBookData } from '../hooks/useTrucksBookData';
 
 const About = () => {
+  const { data: companyData, isLoading, error } = useTrucksBookData();
+
   const values = [
     {
       icon: Target,
@@ -67,16 +70,22 @@ const About = () => {
             
             <div className="grid grid-cols-2 gap-4 text-center">
               <div className="p-4">
-                <div className="text-2xl font-bold text-blue-600">15+</div>
-                <div className="text-slate-600">Anni di Esperienza</div>
+                <div className="text-2xl font-bold text-blue-600">
+                  {isLoading ? '...' : error ? 'N/A' : companyData?.members_count || '0'}
+                </div>
+                <div className="text-slate-600">Membri Totali</div>
               </div>
               <div className="p-4">
-                <div className="text-2xl font-bold text-blue-600">120+</div>
-                <div className="text-slate-600">Dipendenti</div>
+                <div className="text-2xl font-bold text-blue-600">
+                  {isLoading ? '...' : error ? 'N/A' : companyData?.online_members || '0'}
+                </div>
+                <div className="text-slate-600">Membri Online</div>
               </div>
               <div className="p-4">
-                <div className="text-2xl font-bold text-blue-600">50+</div>
-                <div className="text-slate-600">Veicoli</div>
+                <div className="text-2xl font-bold text-blue-600">
+                  {isLoading ? '...' : error ? 'N/A' : companyData?.deliveries?.toLocaleString() || '0'}
+                </div>
+                <div className="text-slate-600">Consegne</div>
               </div>
               <div className="p-4">
                 <div className="text-2xl font-bold text-blue-600">24/7</div>

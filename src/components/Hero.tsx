@@ -1,8 +1,11 @@
 
 import React from 'react';
 import { ArrowRight, Shield, Clock, Globe } from 'lucide-react';
+import { useTrucksBookData } from '../hooks/useTrucksBookData';
 
 const Hero = () => {
+  const { data: companyData, isLoading, error } = useTrucksBookData();
+
   return (
     <section id="home" className="bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800 text-white py-20">
       <div className="container mx-auto px-4">
@@ -63,20 +66,28 @@ const Hero = () => {
         {/* Stats section */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16 pt-8 border-t border-slate-700">
           <div className="text-center">
-            <div className="text-3xl font-bold text-blue-400">500+</div>
-            <div className="text-slate-300">Trasporti Completati</div>
+            <div className="text-3xl font-bold text-blue-400">
+              {isLoading ? '...' : error ? 'N/A' : companyData?.deliveries?.toLocaleString() || '0'}
+            </div>
+            <div className="text-slate-300">Consegne Completate</div>
           </div>
           <div className="text-center">
-            <div className="text-3xl font-bold text-blue-400">50+</div>
-            <div className="text-slate-300">Camion in Flotta</div>
+            <div className="text-3xl font-bold text-blue-400">
+              {isLoading ? '...' : error ? 'N/A' : companyData?.members_count || '0'}
+            </div>
+            <div className="text-slate-300">Membri del Team</div>
           </div>
           <div className="text-center">
-            <div className="text-3xl font-bold text-blue-400">24/7</div>
-            <div className="text-slate-300">Supporto Clienti</div>
+            <div className="text-3xl font-bold text-blue-400">
+              {isLoading ? '...' : error ? 'N/A' : companyData?.online_members || '0'}
+            </div>
+            <div className="text-slate-300">Membri Online</div>
           </div>
           <div className="text-center">
-            <div className="text-3xl font-bold text-blue-400">100%</div>
-            <div className="text-slate-300">Soddisfazione</div>
+            <div className="text-3xl font-bold text-blue-400">
+              {isLoading ? '...' : error ? 'N/A' : companyData?.distance ? `${Math.round(companyData.distance / 1000)}K` : '0'}
+            </div>
+            <div className="text-slate-300">Km Percorsi</div>
           </div>
         </div>
       </div>

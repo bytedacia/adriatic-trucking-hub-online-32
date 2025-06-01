@@ -1,8 +1,11 @@
 
 import React from 'react';
 import { Gauge, Fuel, Users, Award } from 'lucide-react';
+import { useTrucksBookData } from '../hooks/useTrucksBookData';
 
 const Fleet = () => {
+  const { data: companyData, isLoading, error } = useTrucksBookData();
+
   const trucks = [
     {
       name: "Volvo FH16",
@@ -35,10 +38,26 @@ const Fleet = () => {
   ];
 
   const stats = [
-    { icon: Gauge, value: "50+", label: "Veicoli in Flotta" },
-    { icon: Fuel, value: "95%", label: "Efficienza Carburante" },
-    { icon: Users, value: "120+", label: "Autisti Certificati" },
-    { icon: Award, value: "99.8%", label: "Affidabilità" }
+    { 
+      icon: Users, 
+      value: isLoading ? '...' : error ? 'N/A' : companyData?.members_count?.toString() || '0', 
+      label: "Membri Totali" 
+    },
+    { 
+      icon: Gauge, 
+      value: isLoading ? '...' : error ? 'N/A' : companyData?.online_members?.toString() || '0', 
+      label: "Membri Online" 
+    },
+    { 
+      icon: Fuel, 
+      value: isLoading ? '...' : error ? 'N/A' : companyData?.distance ? `${Math.round(companyData.distance / 1000)}K km` : '0 km', 
+      label: "Distanza Totale" 
+    },
+    { 
+      icon: Award, 
+      value: isLoading ? '...' : error ? 'N/A' : companyData?.deliveries?.toLocaleString() || '0', 
+      label: "Consegne" 
+    }
   ];
 
   return (
