@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { MapPin, Phone, Mail, Clock, Send } from 'lucide-react';
+import { MapPin, Send } from 'lucide-react';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -25,26 +25,21 @@ const Contact = () => {
     setFormData({ name: '', email: '', subject: '', message: '' });
   };
 
-  const contactInfo = [
+  const offices = [
     {
-      icon: MapPin,
       title: "Sede Operativa",
-      details: ["Via del Porto 123", "34123 Trieste, Italia"]
+      location: "Bari",
+      description: "Centro operativo principale per la gestione della flotta"
     },
     {
-      icon: Phone,
-      title: "Telefono",
-      details: ["+39 040 123 4567", "+39 040 765 4321"]
+      title: "Sede Legale", 
+      location: "Venezia",
+      description: "Sede legale e amministrativa della società"
     },
     {
-      icon: Mail,
-      title: "Email",
-      details: ["info@e-logistik.it", "commerciale@e-logistik.it"]
-    },
-    {
-      icon: Clock,
-      title: "Orari di Servizio",
-      details: ["Lun-Ven: 24/7", "Weekend: Su richiesta"]
+      title: "Deposito",
+      location: "Pescara", 
+      description: "Uffici per consulenza e supporto clienti"
     }
   ];
 
@@ -52,28 +47,27 @@ const Contact = () => {
     <section id="contatti" className="py-16 bg-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-slate-900 mb-4">Contattaci</h2>
+          <h2 className="text-4xl font-bold text-slate-900 mb-4">Le Nostre Sedi</h2>
           <p className="text-xl text-slate-600 max-w-2xl mx-auto">
-            Siamo qui per rispondere alle tue domande e fornirti il miglior servizio logistico
+            Siamo presenti sul territorio nazionale con uffici strategicamente ubicati
           </p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12">
-          {/* Contact Information */}
+          {/* Office Information */}
           <div>
-            <h3 className="text-2xl font-bold text-slate-900 mb-8">Informazioni di Contatto</h3>
+            <h3 className="text-2xl font-bold text-slate-900 mb-8">Dove Trovarci</h3>
             
             <div className="space-y-6">
-              {contactInfo.map((info, index) => (
+              {offices.map((office, index) => (
                 <div key={index} className="flex items-start space-x-4">
                   <div className="bg-blue-100 w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <info.icon className="text-blue-600" size={20} />
+                    <MapPin className="text-blue-600" size={20} />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-slate-900 mb-2">{info.title}</h4>
-                    {info.details.map((detail, idx) => (
-                      <p key={idx} className="text-slate-600">{detail}</p>
-                    ))}
+                    <h4 className="font-semibold text-slate-900 mb-1">{office.title}</h4>
+                    <p className="text-lg text-blue-600 font-medium mb-2">{office.location}</p>
+                    <p className="text-slate-600">{office.description}</p>
                   </div>
                 </div>
               ))}

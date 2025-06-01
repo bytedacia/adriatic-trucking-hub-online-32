@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Truck, MapPin, Phone, Mail, Clock, Facebook, Twitter, Instagram, Linkedin } from 'lucide-react';
+import { Truck, MapPin, Facebook, Twitter, Instagram, Linkedin } from 'lucide-react';
 
 const Footer = () => {
   return (
@@ -54,33 +54,31 @@ const Footer = () => {
             </ul>
           </div>
           
-          {/* Contact Info */}
+          {/* Locations */}
           <div>
-            <h4 className="text-lg font-bold mb-6">Contatti</h4>
+            <h4 className="text-lg font-bold mb-6">Le Nostre Sedi</h4>
             <div className="space-y-4">
               <div className="flex items-start space-x-3">
                 <MapPin size={16} className="text-blue-400 mt-1 flex-shrink-0" />
                 <div className="text-sm">
-                  <p>Via del Porto 123</p>
-                  <p>34123 Trieste, Italia</p>
+                  <p className="font-semibold">Sede Operativa</p>
+                  <p className="text-slate-300">Bari</p>
                 </div>
               </div>
               
-              <div className="flex items-center space-x-3">
-                <Phone size={16} className="text-blue-400" />
-                <span className="text-sm">+39 040 123 4567</span>
-              </div>
-              
-              <div className="flex items-center space-x-3">
-                <Mail size={16} className="text-blue-400" />
-                <span className="text-sm">info@e-logistik.it</span>
+              <div className="flex items-start space-x-3">
+                <MapPin size={16} className="text-blue-400 mt-1 flex-shrink-0" />
+                <div className="text-sm">
+                  <p className="font-semibold">Sede Legale</p>
+                  <p className="text-slate-300">Venezia</p>
+                </div>
               </div>
               
               <div className="flex items-start space-x-3">
-                <Clock size={16} className="text-blue-400 mt-1" />
+                <MapPin size={16} className="text-blue-400 mt-1 flex-shrink-0" />
                 <div className="text-sm">
-                  <p>Lun-Ven: 24/7</p>
-                  <p>Weekend: Su richiesta</p>
+                  <p className="font-semibold">Deposito</p>
+                  <p className="text-slate-300">Pescara</p>
                 </div>
               </div>
             </div>
