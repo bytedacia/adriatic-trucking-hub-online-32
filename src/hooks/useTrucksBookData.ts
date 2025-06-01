@@ -1,24 +1,6 @@
 
 import { useQuery } from '@tanstack/react-query';
-
-interface TrucksBookCompany {
-  id: number;
-  name: string;
-  members_count: number;
-  online_members: number;
-  distance: number;
-  deliveries: number;
-  logo: string;
-  verified: boolean;
-}
-
-const fetchTrucksBookData = async (): Promise<TrucksBookCompany> => {
-  const response = await fetch('https://api.trucksbook.eu/v2/company/207327');
-  if (!response.ok) {
-    throw new Error('Failed to fetch TrucksBook data');
-  }
-  return response.json();
-};
+import { fetchTrucksBookData, type TrucksBookCompany } from '../services/trucksBookProxy';
 
 export const useTrucksBookData = () => {
   return useQuery({
@@ -26,5 +8,8 @@ export const useTrucksBookData = () => {
     queryFn: fetchTrucksBookData,
     refetchInterval: 5 * 60 * 1000, // Aggiorna ogni 5 minuti
     retry: 3,
+    staleTime: 2 * 60 * 1000, // Considera i dati validi per 2 minuti
   });
 };
+
+export type { TrucksBookCompany };

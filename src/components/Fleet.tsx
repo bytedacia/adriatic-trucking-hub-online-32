@@ -38,12 +38,16 @@ const Fleet = () => {
               <img 
                 src={companyData.logo} 
                 alt="Logo aziendale" 
-                className="h-24 w-auto"
+                className="h-32 w-auto max-w-xs object-contain"
+                onError={(e) => {
+                  // Fallback se il logo non si carica
+                  e.currentTarget.style.display = 'none';
+                }}
               />
             </div>
           )}
           <h2 className="text-4xl font-bold text-slate-900 mb-4">
-            {isLoading ? 'Caricamento...' : error ? 'E-LOGISTIK Adriatic Solutions' : companyData?.name || 'E-LOGISTIK Adriatic Solutions'}
+            {isLoading ? 'Caricamento...' : companyData?.name || 'E-LOGISTIK Adriatic Solutions'}
           </h2>
           <p className="text-xl text-slate-600 max-w-2xl mx-auto">
             Statistiche aziendali in tempo reale della nostra flotta professionale
